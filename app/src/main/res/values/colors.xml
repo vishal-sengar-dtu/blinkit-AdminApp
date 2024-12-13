@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="semi_transparent_black">#80000000</color>
+
+    //splash screen
+    <color name="splash_yellow">#F8CC44</color>
+    <color name="splash_black">#181111</color>
+    <color name="splash_underline">#C8990B</color>
+    <color name="splash_green">#048419</color>
+
+    //login screen
+    <color name="login_light">#FFFFFF</color>
+    <color name="login_dark">#181111</color>
+    <color name="login_border_grey">#EEECF6</color>
+    <color name="login_text_grey">#94A5B3</color>
+    <color name="login_btn_grey">#94A5B3</color>
+    <color name="login_error_red">#E91E63</color>
+    <color name="login_text_white">#FFFFFF</color>
+    <color name="login_green">#048419</color>
+
+    //otp screen
+    <color name="otp_light">#FFFFFF</color>
+    <color name="otp_dark">#181111</color>
+    <color name="otp_toolbar_bg">#F8F6F1</color>
+    <color name="otp_toolbar_text">#000000</color>
+    <color name="otp_grey_border">#EEECF6</color>
+    <color name="otp_blue">#0E7CD5</color>
+    <color name="otp_btn_text">#FFFFFF</color>
+
+    //popup dialog
+    <color name="popup_light">#F6F3F3</color>
+    <color name="popup_dark">#181111</color>
+    <color name="popup_text">#94A5B3</color>
+
+
+</resources>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/splash_yellow"
+    tools:context=".auth.SplashFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="-0.06"
+                android:scaleX="1.2"
+                android:text="@string/bring"
+                android:textColor="@color/splash_black"
+                android:textSize="70sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="14dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="-0.04"
+                android:scaleX="1.2"
+                android:text="@string/it"
+                android:textColor="@color/splash_green"
+                android:textSize="70sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="4dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/administrator"
+            android:textSize="24sp"
+            android:textColor="@color/splash_black"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginVertical="20dp"
+            android:scaleX="1.1"/>
+
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/india_s_last_minute_app"
+        android:textSize="16sp"
+        android:textColor="@color/splash_black"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:scaleX="1.2"/>
+
+        <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/splash_underline"
+        android:layout_marginVertical="20dp"/>
+
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/a_sengar_company"
+        android:textSize="11sp"
+        android:gravity="center"
+        android:textColor="@color/splash_black"
+        android:textStyle="bold"
+        android:scaleX="1.1"
+        android:letterSpacing="0.08"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
