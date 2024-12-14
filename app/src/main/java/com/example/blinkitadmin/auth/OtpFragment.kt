@@ -13,7 +13,6 @@ import android.widget.EditText
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.example.blinkitadmin.Firebase
 import com.example.blinkitadmin.Utility
 import com.example.blinkitadmin.model.User
 import com.example.blinkitadmin.viewmodel.AuthViewModel
@@ -67,7 +66,7 @@ class OtpFragment : Fragment() {
     }
 
     private fun verifyOtp(otp: String) {
-        val user = User(null , phoneNumber, null)
+        val user = User(true, null , phoneNumber, null)
         viewModel.signInWithPhoneAuthCredential(otp, user)
         observeIsLoginSuccessful()
     }

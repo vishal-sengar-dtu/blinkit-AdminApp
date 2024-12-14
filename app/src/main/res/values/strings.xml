@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Blinkit</string>
+    <string name="app_name">Bringit Admin</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- Strings related to login -->
@@ -36,4 +36,7 @@
     <string name="household_essentials">Household Essentials</string>
     <string name="administrator">ADMINISTRATOR</string>
     <string name="admin_login">Admin Login</string>
+    <string name="homefragment">Home</string>
+    <string name="orderfragment">Order</string>
+    <string name="addproductfragment">Add Product</string>
 </resources>
