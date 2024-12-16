@@ -72,4 +72,7 @@ dependencies {
 
     // glide
     implementation (libs.glide)
+
+    // material design 
+    implementation (libs.material.v1120)
 }

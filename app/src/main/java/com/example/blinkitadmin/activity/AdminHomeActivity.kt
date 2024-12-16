@@ -1,12 +1,10 @@
 package com.example.blinkitadmin.activity
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.blinkitadmin.R
 import com.example.blinkitadmin.Utility
@@ -17,12 +15,13 @@ class AdminHomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityAdminHomeBinding.inflate(layoutInflater)
-
-        Utility.setStatusBarColor(this, this, R.color.splash_yellow)
-//        NavigationUI.setupWithNavController(binding.bottomMenu, Navigation.findNavController(this, R.id.fragmentContainerView2))
-
         setContentView(binding.root)
+
+        Utility.setStatusAndNavigationBarColor(this, this, R.color.splash_yellow, R.color.transparent)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView3) as NavHostFragment
+        val navController = navHostFragment.navController
+        NavigationUI.setupWithNavController(binding.bottomNavigation, navController)
     }
 }

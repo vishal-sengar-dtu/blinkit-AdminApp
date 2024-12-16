@@ -23,7 +23,7 @@ class SplashFragment : Fragment() {
     ): View {
         binding = FragmentSplashBinding.inflate(layoutInflater)
 
-        Utility.setStatusBarColor(requireActivity(), requireContext(), R.color.splash_yellow)
+        Utility.setStatusAndNavigationBarColor(requireActivity(), requireContext(), R.color.splash_yellow, R.color.splash_yellow)
 
         Handler(Looper.getMainLooper()).postDelayed({
             if(Utility.isUserLoggedIn(requireContext())) {
@@ -33,7 +33,7 @@ class SplashFragment : Fragment() {
             } else {
                 findNavController().navigate(R.id.action_splashFragment_to_loginFragment2)
             }
-        }, 1800)
+        }, 5000)
 
         return binding.root
     }

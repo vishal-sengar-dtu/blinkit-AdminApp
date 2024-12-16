@@ -14,7 +14,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.blinkitadmin.Utility
-import com.example.blinkitadmin.model.User
+import com.example.blinkitadmin.model.Admin
 import com.example.blinkitadmin.viewmodel.AuthViewModel
 import com.example.blinkitadmin.R
 import com.example.blinkitadmin.activity.AdminHomeActivity
@@ -37,7 +37,7 @@ class OtpFragment : Fragment() {
         binding = FragmentOtpBinding.inflate(layoutInflater)
         otpFields = arrayOf(binding.etOtp1, binding.etOtp2, binding.etOtp3, binding.etOtp4, binding.etOtp5, binding.etOtp6)
 
-        Utility.setStatusBarColor(requireActivity(), requireContext(), R.color.otp_toolbar_bg)
+        Utility.setStatusAndNavigationBarColor(requireActivity(), requireContext(), R.color.otp_toolbar_bg, R.color.otp_toolbar_bg)
         setOtpTextChangeFocusListener()
         handleBackButton()
         getPhoneNumber()
@@ -66,8 +66,8 @@ class OtpFragment : Fragment() {
     }
 
     private fun verifyOtp(otp: String) {
-        val user = User(true, null , phoneNumber, null)
-        viewModel.signInWithPhoneAuthCredential(otp, user)
+        val admin = Admin(null , phoneNumber)
+        viewModel.signInWithPhoneAuthCredential(otp, admin)
         observeIsLoginSuccessful()
     }
 

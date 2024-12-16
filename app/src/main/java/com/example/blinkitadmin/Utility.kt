@@ -2,8 +2,6 @@ package com.example.blinkitadmin
 
 import android.app.Activity
 import android.content.Context
-import android.os.Build
-import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
@@ -11,14 +9,14 @@ import androidx.core.content.ContextCompat
 
 object Utility {
 
-    fun setStatusBarColor(activity : Activity, context : Context?, color : Int) {
+    fun setStatusAndNavigationBarColor(activity : Activity, context : Context?, statusColor : Int, navigationColor : Int) {
         if(context != null) {
             activity.window?.apply {
-                val statusBarColors = ContextCompat.getColor(context, color)
+                val statusBarColors = ContextCompat.getColor(context, statusColor)
                 statusBarColor = statusBarColors
             }
             activity.window?.apply {
-                navigationBarColor = ContextCompat.getColor(context, color)
+                navigationBarColor = ContextCompat.getColor(context, navigationColor)
             }
         }
     }

@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.blinkitadmin.Firebase
-import com.example.blinkitadmin.model.User
+import com.example.blinkitadmin.model.Admin
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
@@ -47,20 +47,20 @@ class AuthViewModel : ViewModel() {
         PhoneAuthProvider.verifyPhoneNumber(options)
     }
 
-    fun signInWithPhoneAuthCredential(otp: String, user: User) {
+    fun signInWithPhoneAuthCredential(otp: String, admin: Admin) {
         // verificationId can be null if we enter OTP before even receiving it.
         val credential : PhoneAuthCredential = PhoneAuthProvider.getCredential(_verificationId!!, otp)
 
         Firebase.getAuthInstance().signInWithCredential(credential)
             .addOnCompleteListener { task ->
-                user.uId = Firebase.getCurrentUserId()
+                admin.id = Firebase.getCurrentUserId()
                 if (task.isSuccessful) {
                     _isLoginSuccessful.value = true
                     Firebase.getDatabaseInstance()
-                        .getReference("AllUsers")
-                        .child("Users")
-                        .child(user.uId!!)
-                        .setValue(user)
+                        .getReference("Admins")
+                        .child("AdminInfo")
+                        .child(admin.id!!)
+                        .setValue(admin)
 
                 } else {
                     _isLoginSuccessful.value = false
