@@ -19,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/baseline_arrow_back_30"
         app:title="OTP Verification"
+        app:titleTextAppearance="@style/CustomToolbarTitle"
         app:titleTextColor="@color/otp_toolbar_text" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

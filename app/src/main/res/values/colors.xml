@@ -35,5 +35,11 @@
     <color name="popup_dark">#181111</color>
     <color name="popup_text">#94A5B3</color>
 
+    //Admin
+    <color name="background_light">#FFFFFF</color>
+    <color name="background_dark">#3E3B3B</color>
+    <color name="bottom_nav_light">#F8CC44</color>
+    <color name="dark_text">#000000</color>
+
 
 </resources>

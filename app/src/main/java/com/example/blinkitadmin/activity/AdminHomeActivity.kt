@@ -2,8 +2,6 @@ package com.example.blinkitadmin.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.blinkitadmin.R
@@ -18,7 +16,7 @@ class AdminHomeActivity : AppCompatActivity() {
         binding = ActivityAdminHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Utility.setStatusAndNavigationBarColor(this, this, R.color.splash_yellow, R.color.transparent)
+        Utility.setStatusAndNavigationBarColor(this, this, R.color.splash_yellow, R.color.background_light)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView3) as NavHostFragment
         val navController = navHostFragment.navController

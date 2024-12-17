@@ -37,6 +37,18 @@
     <string name="administrator">ADMINISTRATOR</string>
     <string name="admin_login">Admin Login</string>
     <string name="homefragment">Home</string>
-    <string name="orderfragment">Order</string>
+    <string name="orderfragment">Orders</string>
     <string name="addproductfragment">Add Product</string>
+    <string name="add_product_details">Enter Product Details</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_nam">Product Name</string>
+    <string name="quantity_1kg_1lt">Quantity (1Kg, 1Lt)</string>
+    <string name="unit">Unit</string>
+    <string name="price">Price (₹)</string>
+    <string name="no_of_stock">No. of Stock</string>
+    <string name="product_category">Product Category</string>
+    <string name="product_type">Product Type</string>
+    <string name="upload_product_images">Upload Product Images</string>
+    <string name="pick">PICK</string>
+    <string name="add_product">Add Product</string>
 </resources>
