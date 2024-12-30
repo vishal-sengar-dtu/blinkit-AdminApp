@@ -1,6 +1,7 @@
 package com.example.blinkitadmin.adminHome
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
@@ -11,14 +12,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.blinkitadmin.Constants
+import com.example.blinkitadmin.Firebase
 import com.example.blinkitadmin.R
+import com.example.blinkitadmin.Utility
+import com.example.blinkitadmin.activity.AdminHomeActivity
 import com.example.blinkitadmin.adapter.AdapterUploadImage
 import com.example.blinkitadmin.databinding.FragmentAddProductBinding
+import com.example.blinkitadmin.model.Product
+import com.example.blinkitadmin.viewmodel.AdminViewModel
+import com.example.blinkitadmin.viewmodel.AuthViewModel
+import kotlinx.coroutines.launch
 
 class AddProductFragment : Fragment() {
     private lateinit var binding : FragmentAddProductBinding
+    private val viewModel : AdminViewModel by viewModels()
     private lateinit var formDetails : Array<EditText>
     private val imageUriList : ArrayList<Uri> = arrayListOf()
     private lateinit var imageAdapter: AdapterUploadImage
@@ -73,7 +86,64 @@ class AddProductFragment : Fragment() {
             }
 
             if(binding.tvErrorMsg1.visibility == View.GONE && binding.tvErrorMsg2.visibility == View.GONE) {
+                val product = Product(
+                    title = binding.etProductName.text.toString(),
+                    quantity = binding.etQuantity.text.toString().toIntOrNull(),
+                    unit = binding.etUnit.text.toString(),
+                    price = binding.etPrice.text.toString().toIntOrNull(),
+                    stock = binding.etStock.text.toString().toIntOrNull(),
+                    category = binding.etCategory.text.toString(),
+                    type = binding.etType.text.toString(),
+                    itemCount = 0,
+                    adminUid = Firebase.getCurrentUserId(),
+                    id = Utility.generateRandomId(32)
+                )
 
+                saveImage(product)
+            }
+        }
+    }
+
+    private fun saveImage(product: Product) {
+        binding.progressbar.visibility = View.VISIBLE
+        Toast.makeText(requireContext(), "Uploading Images in Storage...", Toast.LENGTH_SHORT).show()
+
+        viewModel.saveImageInStorage(imageUriList)
+
+        lifecycleScope.launch {
+            viewModel.isImageUploaded.collect {
+                if(it) {
+                    binding.progressbar.visibility = View.GONE
+                    Toast.makeText(requireContext(), "Images Uploaded.", Toast.LENGTH_SHORT).show()
+                    getImageUrlsFromStorage(product)
+                }
+            }
+        }
+    }
+
+    private fun getImageUrlsFromStorage(product : Product) {
+        lifecycleScope.launch {
+            viewModel.downloadedUrls.collect {
+                val urls = it
+                product.productImageUrl = urls
+                saveProduct(product)
+            }
+        }
+    }
+
+    private fun saveProduct(product: Product) {
+        binding.progressbar.visibility = View.VISIBLE
+        Toast.makeText(requireContext(), "Saving Product in Firebase DB...", Toast.LENGTH_SHORT).show()
+
+        viewModel.saveProductInDB(product)
+
+        lifecycleScope.launch {
+            viewModel.isProductSaved.collect {
+                if(it) {
+                    binding.progressbar.visibility = View.GONE
+                    Toast.makeText(requireContext(), "Product is Published.", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(requireActivity(), AdminHomeActivity::class.java))
+                }
             }
         }
     }

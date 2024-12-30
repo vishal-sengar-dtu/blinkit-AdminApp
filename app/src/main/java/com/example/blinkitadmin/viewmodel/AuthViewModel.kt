@@ -15,10 +15,13 @@ import java.util.concurrent.TimeUnit
 
 class AuthViewModel : ViewModel() {
     private var _verificationId : String? = null
+
     private val _otpSent =  MutableLiveData(false)
     val otpSent : LiveData<Boolean> = _otpSent
+
     private val _isLoginSuccessful =  MutableStateFlow<Boolean?>(null)
     val isLoginSuccessful = _isLoginSuccessful
+
 
     fun sendOtp(phoneNumber : String, activity : Activity) {
         val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
