@@ -38,6 +38,7 @@
     <color name="background_light">#181111</color>
     <color name="background_dark">#FFFFFFFF</color>
     <color name="bottom_nav_light">#94A5B3</color>
-    <color name="dark_text">#000000</color>
+    <color name="dark_text">#FFFFFF</color>
+    <color name="card_background">#282626</color>
 
 </resources>

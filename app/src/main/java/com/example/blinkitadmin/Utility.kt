@@ -2,9 +2,11 @@ package com.example.blinkitadmin
 
 import android.app.Activity
 import android.content.Context
+import android.content.pm.PackageManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 object Utility {
@@ -51,7 +53,7 @@ object Utility {
         return sharedPref.getBoolean("isLoggedIn", false)
     }
 
-    private fun clearLoginSession(context: Context) {
+    fun clearLoginSession(context: Context) {
         val sharedPref = context.getSharedPreferences("UserSession", Context.MODE_PRIVATE)
         with(sharedPref.edit()) {
             clear()

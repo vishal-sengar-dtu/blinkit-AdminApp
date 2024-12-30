@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Customize as needed -->
+    </style>
+
     <style name="CustomToolbarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:fontFamily">@font/montserrat_bold</item>
         <item name="android:textSize">18sp</item>
