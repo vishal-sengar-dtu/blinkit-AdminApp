@@ -69,8 +69,8 @@
     <color name="toolbar_light">#FBF2A0</color>
 
     //categories bg gradient
-    <color name="category_bg_dark">#FFFFFF</color>
-    <color name="category_bg_light">#F8CC44</color>
+    <color name="category_bg_dark">#F8CC44</color>
+    <color name="category_bg_light">#FBF2A0</color>
     <color name="text_color_dark">#595959</color>
 
     //skeleton loader

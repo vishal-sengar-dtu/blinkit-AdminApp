@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
         binding.apply {
             rvProducts.visibility = View.GONE
             clSkeletonHome.visibility = View.VISIBLE
-            val skeletonList = List(6)  {""}
+            val skeletonList = List(9)  {""}
             binding.rvSkeletonProducts.adapter = SkeletonAdapter(skeletonList)
         }
     }
