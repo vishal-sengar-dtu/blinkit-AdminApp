@@ -33,14 +33,15 @@ class HomeFragment : Fragment() {
     }
 
     private fun setCategoriesRecyclerView() {
-        binding.rvCategories.adapter = CategoriesAdapter(Constants.allProductCategory, this)
+        val categoryAdapter = CategoriesAdapter(Constants.allProductCategory, this)
+        binding.rvCategories.adapter = categoryAdapter
     }
 
     private fun showSkeletonLoader() {
         binding.apply {
-            clHome.visibility = View.GONE
+            rvProducts.visibility = View.GONE
             clSkeletonHome.visibility = View.VISIBLE
-            val skeletonList = List(8)  {""}
+            val skeletonList = List(6)  {""}
             binding.rvSkeletonProducts.adapter = SkeletonAdapter(skeletonList)
         }
     }
@@ -48,7 +49,7 @@ class HomeFragment : Fragment() {
     private fun hideSkeletonLoader() {
         binding.apply {
             clSkeletonHome.visibility = View.GONE
-            clHome.visibility = View.VISIBLE
+            rvProducts.visibility = View.VISIBLE
         }
     }
 

@@ -74,9 +74,6 @@ dependencies {
     // glide
     implementation (libs.glide)
 
-    // image slider
-    implementation (libs.autoimageslider)
-
     // shimmer
     implementation (libs.shimmer)
 }

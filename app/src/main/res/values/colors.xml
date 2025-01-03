@@ -62,10 +62,16 @@
     <color name="home_text">#5A5A5D</color>
     <color name="home_text_grey">#94A5B3</color>
     <color name="home_item_bg">#E5F3F3</color>
+    <color name="image_switcher_bg">#E9EBF4</color>
 
     //toolbar gradient
     <color name="toolbar_yellow">#F8CC44</color>
     <color name="toolbar_light">#FBF2A0</color>
+
+    //categories bg gradient
+    <color name="category_bg_dark">#FFFFFF</color>
+    <color name="category_bg_light">#F8CC44</color>
+    <color name="text_color_dark">#595959</color>
 
     //skeleton loader
     <color name="skeleton_grey">#E0E0E0</color>

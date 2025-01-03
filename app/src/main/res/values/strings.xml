@@ -54,5 +54,6 @@
     <string name="upload_product_image_error">Please upload the product image</string>
     <string name="necessary_product_details_error">Fill all the necessary product details</string>
     <string name="delete_product_images">Delete Product Images</string>
+    <string name="edit">Edit</string>
 
 </resources>

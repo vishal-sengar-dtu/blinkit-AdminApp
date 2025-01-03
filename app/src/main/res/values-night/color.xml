@@ -48,10 +48,16 @@
     <color name="home_border_grey">#211F1F</color>
     <color name="home_text">#E0DFDF</color>
     <color name="home_item_bg">#93BFBF</color>
+    <color name="image_switcher_bg">#E5F3F3</color>
 
     //toolbar gradient
     <color name="toolbar_yellow">#000000</color>
     <color name="toolbar_light">#262222</color>
+
+    //categories bg gradient
+    <color name="category_bg_dark">#000000</color>
+    <color name="category_bg_light">#454141</color>
+    <color name="text_color_dark">#B1B0B0</color>
 
     //skeleton loader
     <color name="skeleton_grey">#E0E0E0</color>
