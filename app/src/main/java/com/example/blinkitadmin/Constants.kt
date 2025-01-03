@@ -1,37 +1,38 @@
 package com.example.blinkitadmin
 
+import com.example.blinkitadmin.model.Category
+
 object Constants {
 
     val allProductCategory = arrayOf(
-        "All",
-        "Vegetables & Fruits",
-        "Atta, Rice & Dal",
-        "Oil, Ghee & Masala",
-        "Dairy, Bread & Eggs",
-        "Bakery & Biscuits",
-        "Dry Fruits & Cereals",
-        "Chicken, Meat & Fish",
-        "Kitchenware & Appliances",
-        "Chips & Namkeen",
-        "Sweets & Chocolates",
-        "Drinks & Juices",
-        "Tea, Coffee & Milk Drinks",
-        "Instant Food",
-        "Sauces & Spreads",
-        "Paan Corner",
-        "Ice Creams & More",
-        "Bath & Body",
-        "Hair",
-        "Skin & Face",
-        "Beauty & Cosmetics",
-        "Feminine Hygiene",
-        "Baby Care",
-        "Health & Pharma",
-        "Sexual Wellness",
-        "Home & Lifestyle",
-        "Cleaners & Repellents",
-        "Electronics",
-        "Stationery & Games"
+        Category("Atta, Rice & Dal", null),
+        Category("Bakery & Biscuits", null),
+        Category("Chicken, Meat & Fish", null),
+        Category("Dairy, Bread & Eggs", null),
+        Category("Dry Fruits & Cereals", null),
+        Category("Kitchenware & Appliances", null),
+        Category("Oil, Ghee & Masala", null),
+        Category("Vegetables & Fruits", null),
+        Category("Chips & Namkeen", null),
+        Category("Drinks & Juices", null),
+        Category("Ice Creams & More", null),
+        Category("Instant Food", null),
+        Category("Paan Corner", null),
+        Category("Sauces & Spreads", null),
+        Category("Sweets & Chocolates", null),
+        Category("Tea, Coffee & Milk Drinks", null),
+        Category("Baby Care", null),
+        Category("Bath & Body", null),
+        Category("Beauty & Cosmetics", null),
+        Category("Feminine Hygiene", null),
+        Category("Hair", null),
+        Category("Health & Pharma", null),
+        Category("Sexual Wellness", null),
+        Category("Skin & Face", null),
+        Category("Cleaners & Repellents",null),
+        Category("Electronics", null),
+        Category("Home & Lifestyle", null),
+        Category("Stationery & Games", null)
     )
 
     val allUnitsOfProducts = arrayOf(

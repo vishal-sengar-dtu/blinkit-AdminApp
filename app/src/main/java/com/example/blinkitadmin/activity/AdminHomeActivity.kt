@@ -16,7 +16,7 @@ class AdminHomeActivity : AppCompatActivity() {
         binding = ActivityAdminHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Utility.setStatusAndNavigationBarColor(this, this, R.color.splash_yellow, R.color.background_light)
+        Utility.setStatusAndNavigationBarColor(this, this, R.color.splash_yellow, R.color.white)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView3) as NavHostFragment
         val navController = navHostFragment.navController

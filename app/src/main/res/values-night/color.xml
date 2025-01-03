@@ -6,7 +6,7 @@
     <color name="semi_transparent_black">#80000000</color>
 
     //splash
-    <color name="splash_yellow">#181111</color>
+    <color name="splash_yellow">#FF000000</color>
     <color name="splash_black">#F8CC44</color>
     <color name="splash_underline">#C8990B</color>
     <color name="splash_green">#048419</color>
@@ -40,5 +40,20 @@
     <color name="bottom_nav_light">#94A5B3</color>
     <color name="dark_text">#FFFFFF</color>
     <color name="card_background">#282626</color>
+
+    //Admin-home
+    <color name="home_dark">#FFFFFF</color>
+    <color name="home_light">#2A2828</color>
+    <color name="home_yellow">#000000</color>
+    <color name="home_border_grey">#211F1F</color>
+    <color name="home_text">#E0DFDF</color>
+    <color name="home_item_bg">#93BFBF</color>
+
+    //toolbar gradient
+    <color name="toolbar_yellow">#000000</color>
+    <color name="toolbar_light">#262222</color>
+
+    //skeleton loader
+    <color name="skeleton_grey">#E0E0E0</color>
 
 </resources>

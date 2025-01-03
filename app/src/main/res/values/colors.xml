@@ -54,4 +54,21 @@
     <color name="dark_text">#000000</color>
     <color name="card_background">#FAF9F8</color>
 
+    //Admin-home
+    <color name="home_light">#FFFFFF</color>
+    <color name="home_dark">#050000</color>
+    <color name="home_yellow">#F8CC44</color>
+    <color name="home_border_grey">#EEECF6</color>
+    <color name="home_text">#5A5A5D</color>
+    <color name="home_text_grey">#94A5B3</color>
+    <color name="home_item_bg">#E5F3F3</color>
+
+    //toolbar gradient
+    <color name="toolbar_yellow">#F8CC44</color>
+    <color name="toolbar_light">#FBF2A0</color>
+
+    //skeleton loader
+    <color name="skeleton_grey">#E0E0E0</color>
+
+
 </resources>

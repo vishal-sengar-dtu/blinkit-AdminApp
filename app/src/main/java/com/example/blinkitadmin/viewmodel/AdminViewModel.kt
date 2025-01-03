@@ -24,7 +24,7 @@ class AdminViewModel : ViewModel() {
 
         imageUris.forEach { uri ->
 
-            val imageRef = FirebaseStorage.getInstance().reference
+            val imageRef = Firebase.getFirebaseStorageReference()
                 .child(Firebase.getCurrentUserId())
                 .child("images/")
                 .child(UUID.randomUUID().toString())
