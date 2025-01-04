@@ -43,12 +43,15 @@
 
     //Admin-home
     <color name="home_dark">#FFFFFF</color>
-    <color name="home_light">#2A2828</color>
+    <color name="home_light">#1D1C1C</color>
     <color name="home_yellow">#000000</color>
     <color name="home_border_grey">#211F1F</color>
     <color name="home_text">#E0DFDF</color>
     <color name="home_item_bg">#93BFBF</color>
-    <color name="image_switcher_bg">#E5F3F3</color>
+    <color name="image_switcher_bg">#424343</color>
+    <color name="quantity_text">#B498E7</color>
+    <color name="discount_text">#7081DB</color>
+    <color name="time_text">#6F707A</color>
 
     //toolbar gradient
     <color name="toolbar_yellow">#000000</color>

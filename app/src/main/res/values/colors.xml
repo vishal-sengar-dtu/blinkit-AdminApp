@@ -62,7 +62,10 @@
     <color name="home_text">#5A5A5D</color>
     <color name="home_text_grey">#94A5B3</color>
     <color name="home_item_bg">#E5F3F3</color>
-    <color name="image_switcher_bg">#E9EBF4</color>
+    <color name="image_switcher_bg">#F3F4F8</color>
+    <color name="quantity_text">#561BC3</color>
+    <color name="discount_text">#2E48D5</color>
+    <color name="time_text">#393A40</color>
 
     //toolbar gradient
     <color name="toolbar_yellow">#F8CC44</color>

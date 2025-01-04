@@ -5,6 +5,7 @@ import com.example.blinkitadmin.model.Category
 object Constants {
 
     val allProductCategory = arrayOf(
+        Category("All Products", R.drawable.all_products),
         Category("Vegetables & Fruits", R.drawable.vegetables_and_fruits),
         Category("Atta, Rice & Dal", R.drawable.atta_rice_dal),
         Category("Oil, Ghee & Masala", R.drawable.oil_ghee_masala),

@@ -8,7 +8,11 @@ import com.bumptech.glide.Glide
 import com.example.blinkitadmin.databinding.ItemViewCategoriesBinding
 import com.example.blinkitadmin.model.Category
 
-class CategoriesAdapter(private val categoryImageUrlList : Array<Category>, private val fragment : Fragment) : RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder>() {
+class CategoriesAdapter(
+    private val categoryImageUrlList: Array<Category>,
+    private val fragment: Fragment,
+    val onCategoryClicked: (String) -> Unit
+) : RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder>() {
 
     inner class CategoryViewHolder(val binding : ItemViewCategoriesBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -24,6 +28,10 @@ class CategoriesAdapter(private val categoryImageUrlList : Array<Category>, priv
                 .load(categoryImageUrlList[position].imageUrl)
                 .into(holder.binding.imgCategory)
 
+        }
+
+        holder.itemView.setOnClickListener {
+            onCategoryClicked(categoryImageUrlList[position].title!!)
         }
     }
 

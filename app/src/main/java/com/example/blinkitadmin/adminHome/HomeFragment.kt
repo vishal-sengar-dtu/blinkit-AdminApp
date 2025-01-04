@@ -31,26 +31,37 @@ class HomeFragment : Fragment() {
         onSearchCrossClick()
         showSkeletonLoader()
         setCategoriesRecyclerView()
-        setProductRecyclerView()
+        setProductRecyclerView("All Products")
 
         return binding.root
     }
 
-    private fun setProductRecyclerView() {
+    private fun onCategoryClicked(category: String) {
+        showSkeletonLoader()
+        setProductRecyclerView(category)
+    }
+
+    private fun setProductRecyclerView(category: String) {
         lifecycleScope.launch {
-            viewModel.fetchAllProducts().collect {
+            viewModel.fetchAllProducts(category).collect {
                 val productAdapter = ProductAdapter(this@HomeFragment)
                 productAdapter.differ.submitList(it)
                 binding.rvProducts.adapter = productAdapter
 
                 hideSkeletonLoader()
+
+                if(it.isEmpty()) {
+                    binding.tvNoProducts.visibility = View.VISIBLE
+                } else {
+                    binding.tvNoProducts.visibility = View.GONE
+                }
             }
         }
 
     }
 
     private fun setCategoriesRecyclerView() {
-        val categoryAdapter = CategoriesAdapter(Constants.allProductCategory, this)
+        val categoryAdapter = CategoriesAdapter(Constants.allProductCategory, this, ::onCategoryClicked)
         binding.rvCategories.adapter = categoryAdapter
     }
 
