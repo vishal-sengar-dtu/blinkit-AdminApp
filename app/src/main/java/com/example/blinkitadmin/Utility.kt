@@ -2,11 +2,9 @@ package com.example.blinkitadmin
 
 import android.app.Activity
 import android.content.Context
-import android.content.pm.PackageManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 object Utility {
@@ -66,6 +64,13 @@ object Utility {
         return (1..length)
             .map { chars.random() }
             .joinToString("")
+    }
+
+    fun discountPrice(price: Int, discount: Int?) : Int {
+        if(discount == null) {
+            return price
+        }
+        return price - (price * discount / 100)
     }
 
 }

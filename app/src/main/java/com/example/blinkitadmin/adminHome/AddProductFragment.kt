@@ -193,8 +193,12 @@ class AddProductFragment : Fragment() {
     }
 
     private fun setAutoCompleteTextViews() {
+        val allCategoriesList : ArrayList<String?> = arrayListOf()
+        for(category in Constants.allProductCategory) {
+            allCategoriesList.add(category.title)
+        }
         val units = ArrayAdapter(requireContext(), R.layout.show_list, Constants.allUnitsOfProducts)
-        val categories = ArrayAdapter(requireContext(), R.layout.show_list, Constants.allProductCategory)
+        val categories = ArrayAdapter(requireContext(), R.layout.show_list, allCategoriesList)
         val types = ArrayAdapter(requireContext(), R.layout.show_list, Constants.allProductTypes)
 
         binding.apply {

@@ -166,6 +166,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
+                tools:listitem="@layout/skeleton_loader_item"
                 app:spanCount="3" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

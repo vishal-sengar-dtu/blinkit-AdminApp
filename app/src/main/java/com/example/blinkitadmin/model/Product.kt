@@ -9,6 +9,7 @@ data class Product(
     var unit : String? = null,
     var price : Int? = null,
     var stock : Int? = null,
+    var discount : Int? = null,
     var category : String? = null,
     var type : String? = null,
     var itemCount : Int? = null,

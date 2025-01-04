@@ -3,7 +3,7 @@
     android:shape="rectangle">
 
     <!-- Define the corner radii for rounded corners -->
-    <corners android:radius="@dimen/_8sdp" />
+    <corners android:radius="@dimen/_4sdp" />
 
     <!-- Optional: Define a solid color or make it transparent -->
     <stroke android:color="@color/splash_green"

@@ -56,5 +56,9 @@
     <string name="delete_product_images">Delete Product Images</string>
     <string name="edit">Edit</string>
     <string name="home">Home</string>
+    <string name="discount_text">%1$d%% OFF</string>
+    <string name="price_text">₹%1$s</string>
+    <string name="mrp_text">MRP ₹%1$s</string>
+    <string name="_15_mins">15 MINS</string>
 
 </resources>

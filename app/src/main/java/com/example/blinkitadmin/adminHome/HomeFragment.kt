@@ -8,11 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.blinkitadmin.Constants
 import com.example.blinkitadmin.adapter.CategoriesAdapter
+import com.example.blinkitadmin.adapter.ProductAdapter
 import com.example.blinkitadmin.adapter.SkeletonAdapter
 import com.example.blinkitadmin.databinding.FragmentHomeBinding
 import com.example.blinkitadmin.viewmodel.AdminViewModel
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
     private lateinit var binding : FragmentHomeBinding
@@ -28,8 +31,22 @@ class HomeFragment : Fragment() {
         onSearchCrossClick()
         showSkeletonLoader()
         setCategoriesRecyclerView()
+        setProductRecyclerView()
 
         return binding.root
+    }
+
+    private fun setProductRecyclerView() {
+        lifecycleScope.launch {
+            viewModel.fetchAllProducts().collect {
+                val productAdapter = ProductAdapter(this@HomeFragment)
+                productAdapter.differ.submitList(it)
+                binding.rvProducts.adapter = productAdapter
+
+                hideSkeletonLoader()
+            }
+        }
+
     }
 
     private fun setCategoriesRecyclerView() {
@@ -39,17 +56,17 @@ class HomeFragment : Fragment() {
 
     private fun showSkeletonLoader() {
         binding.apply {
-            rvProducts.visibility = View.GONE
-            clSkeletonHome.visibility = View.VISIBLE
-            val skeletonList = List(9)  {""}
+            scrollView.visibility = View.GONE
+            skeletonScrollView.visibility = View.VISIBLE
+            val skeletonList = List(6)  {""}
             binding.rvSkeletonProducts.adapter = SkeletonAdapter(skeletonList)
         }
     }
 
     private fun hideSkeletonLoader() {
         binding.apply {
-            clSkeletonHome.visibility = View.GONE
-            rvProducts.visibility = View.VISIBLE
+            skeletonScrollView.visibility = View.GONE
+            scrollView.visibility = View.VISIBLE
         }
     }
 

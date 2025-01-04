@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/ll_item"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -22,11 +22,11 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="116dp"
-            android:layout_height="210dp"
-            app:cardCornerRadius="@dimen/_10sdp"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_180sdp"
+            app:cardCornerRadius="@dimen/_6sdp"
             android:backgroundTint="@color/skeleton_grey" />
 
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
