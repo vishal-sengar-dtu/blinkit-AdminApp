@@ -18,7 +18,10 @@ import com.example.blinkitadmin.Utility
 import com.example.blinkitadmin.databinding.ItemViewProductBinding
 import com.example.blinkitadmin.model.Product
 
-class ProductAdapter(private val fragment : Fragment) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter(
+    private val fragment : Fragment,
+    val onEditButtonClick : (Product) -> Unit
+) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     val differ = AsyncListDiffer(this, object : DiffUtil.ItemCallback<Product>() {
         override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
@@ -47,14 +50,13 @@ class ProductAdapter(private val fragment : Fragment) : RecyclerView.Adapter<Pro
 
     inner class ProductViewHolder(val binding : ItemViewProductBinding) : RecyclerView.ViewHolder(binding.root) {
         private var images : ArrayList<String?>? = null
-        private var currentImageIndex = 0
 
         fun bind(position: Int) {
             binding.apply {
                 val quantity = "${differ.currentList[position].quantity} ${differ.currentList[position].unit}"
                 tvQuantity.text = quantity
                 tvName.text = differ.currentList[position].title
-                if(differ.currentList[position].discount == null) {
+                if(differ.currentList[position].discount == null || differ.currentList[position].discount == 0) {
                     tvDiscount.visibility = View.GONE
                     tvMrp.visibility = View.GONE
                 } else {
@@ -70,22 +72,19 @@ class ProductAdapter(private val fragment : Fragment) : RecyclerView.Adapter<Pro
                 }
                 tvPrice.text = fragment.getString(R.string.price_text, Utility.priceString(Utility.discountPrice(differ.currentList[position].price!!, differ.currentList[position].discount).toString()))
 
+                images = differ.currentList[position].productImageUrl
+
+                // Set the initial image
+                Glide.with(imageSwitcher)
+                    .load(images!![0])
+                    .override(100, 100)
+                    .into(imageView)
+
+                // Edit Button Click Listener
+                btnEdit.setOnClickListener {
+                    onEditButtonClick(differ.currentList[position])
+                }
             }
-
-            // Set up the ImageSwitcher with animation
-            val fadeIn: Animation = AnimationUtils.loadAnimation(fragment.requireContext(), android.R.anim.fade_in)
-            val fadeOut: Animation = AnimationUtils.loadAnimation(fragment.requireContext(), android.R.anim.fade_out)
-            binding.imageSwitcher.inAnimation = fadeIn
-            binding.imageSwitcher.outAnimation = fadeOut
-
-            // List of product image resources (can be URLs or drawables)
-            images = differ.currentList[position].productImageUrl
-
-            // Set the initial image
-            Glide.with(binding.imageSwitcher)
-                .load(images!![0])
-                .override(100, 100)
-                .into(binding.imageView)
 
         }
 

@@ -62,5 +62,7 @@
     <string name="_15_mins">15 MINS</string>
     <string name="no_products_for_this_category">No Products for this Category</string>
     <string name="discount">Discount (%)</string>
+    <string name="edit_product_details">Edit Product Details</string>
+    <string name="save">Save</string>
 
 </resources>

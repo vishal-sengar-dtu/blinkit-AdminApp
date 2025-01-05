@@ -143,9 +143,7 @@ class AddProductFragment : Fragment() {
                 if(it) {
                     binding.progressbar.visibility = View.GONE
                     Toast.makeText(requireContext(), "Product is Published.", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(requireActivity(), AdminHomeActivity::class.java)
-                    startActivity(intent)
-                    requireActivity().finish()
+                    findNavController().navigate(R.id.action_addProductFragment_to_homeFragment)
                 }
             }
         }

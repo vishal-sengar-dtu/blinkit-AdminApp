@@ -38,6 +38,7 @@
         </android.widget.ImageSwitcher>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_edit"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_20sdp"
             android:layout_alignParentEnd="true"
