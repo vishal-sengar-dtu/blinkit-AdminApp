@@ -17,6 +17,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.blinkitadmin.Constants
 import com.example.blinkitadmin.Firebase
 import com.example.blinkitadmin.R
@@ -142,7 +143,9 @@ class AddProductFragment : Fragment() {
                 if(it) {
                     binding.progressbar.visibility = View.GONE
                     Toast.makeText(requireContext(), "Product is Published.", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(requireActivity(), AdminHomeActivity::class.java))
+                    val intent = Intent(requireActivity(), AdminHomeActivity::class.java)
+                    startActivity(intent)
+                    requireActivity().finish()
                 }
             }
         }

@@ -64,11 +64,11 @@ class ProductAdapter(private val fragment : Fragment) : RecyclerView.Adapter<Pro
                     val builder = SpannableStringBuilder()
                     builder.append("MRP ")
                     val start = builder.length
-                    builder.append("₹${differ.currentList[position].price.toString()}")
+                    builder.append("₹${Utility.priceString(differ.currentList[position].price.toString())}")
                         .setSpan(StrikethroughSpan(), start, builder.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
                     tvMrp.text = builder
                 }
-                tvPrice.text = fragment.getString(R.string.price_text, Utility.discountPrice(differ.currentList[position].price!!, differ.currentList[position].discount).toString())
+                tvPrice.text = fragment.getString(R.string.price_text, Utility.priceString(Utility.discountPrice(differ.currentList[position].price!!, differ.currentList[position].discount).toString()))
 
             }
 

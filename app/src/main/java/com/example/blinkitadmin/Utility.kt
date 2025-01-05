@@ -73,4 +73,11 @@ object Utility {
         return price - (price * discount / 100)
     }
 
+    fun priceString(price : String) : String{
+        if(price.length > 3) {
+            return "${price.substring(0, price.length - 3)},${price.substring(price.length - 3, price.length)}"
+        }
+        return price
+    }
+
 }
