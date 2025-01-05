@@ -72,6 +72,7 @@ class HomeFragment : Fragment() {
                 etCategory.isEnabled = true
                 etType.isEnabled = true
                 setAutoCompleteTextViews(editProductViewBinding)
+                etDiscount.requestFocus()
             }
 
             btnSave.setOnClickListener {
