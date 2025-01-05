@@ -53,7 +53,7 @@ class AdminViewModel : ViewModel() {
             .addOnSuccessListener {
                 Firebase.getDatabaseInstance().getReference("Admins").child("ProductCategory/${product.category}/${product.id}").setValue(product)
                     .addOnSuccessListener {
-                        Firebase.getDatabaseInstance().getReference("Admins").child("ProductType/${product.type}/${product.type}").setValue(product)
+                        Firebase.getDatabaseInstance().getReference("Admins").child("ProductType/${product.type}/${product.id}").setValue(product)
                             .addOnSuccessListener {
                                 _isProductSaved.value = true
                             }
@@ -64,7 +64,7 @@ class AdminViewModel : ViewModel() {
     fun saveUpdatedProductValue(product : Product) {
         Firebase.getDatabaseInstance().getReference("Admins").child("AllProducts/${product.id}").setValue(product)
         Firebase.getDatabaseInstance().getReference("Admins").child("ProductCategory/${product.category}/${product.id}").setValue(product)
-        Firebase.getDatabaseInstance().getReference("Admins").child("ProductType/${product.type}/${product.type}").setValue(product)
+        Firebase.getDatabaseInstance().getReference("Admins").child("ProductType/${product.type}/${product.id}").setValue(product)
     }
 
     fun fetchAllProducts(category: String): Flow<List<Product>> = callbackFlow {
