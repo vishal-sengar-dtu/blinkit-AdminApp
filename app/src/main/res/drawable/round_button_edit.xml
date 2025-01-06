@@ -7,7 +7,7 @@
 
     <!-- Optional: Define a solid color or make it transparent -->
     <stroke android:color="@color/splash_green"
-        android:width="@dimen/_1sdp"/>
+        android:width="1dp"/>
 
     <solid
         android:color="@color/white" />
