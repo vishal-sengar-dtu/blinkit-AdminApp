@@ -26,6 +26,7 @@ import kotlinx.coroutines.launch
 class HomeFragment : Fragment() {
     private lateinit var binding : FragmentHomeBinding
     private val viewModel : AdminViewModel by viewModels()
+    private lateinit var productAdapter : ProductAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,8 +34,7 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
-        onSearchTextListener()
-        onSearchCrossClick()
+        searchProductFilter()
         showSkeletonLoader()
         setCategoriesRecyclerView()
         setProductRecyclerView(Constants.allProductCategory[0].title!!)
@@ -128,8 +128,9 @@ class HomeFragment : Fragment() {
     private fun setProductRecyclerView(category: String) {
         lifecycleScope.launch {
             viewModel.fetchAllProducts(category).collect {
-                val productAdapter = ProductAdapter(this@HomeFragment, ::onEditButtonClick)
+                productAdapter = ProductAdapter(this@HomeFragment, ::onEditButtonClick)
                 productAdapter.differ.submitList(it)
+                productAdapter.originalProductList = it
                 binding.rvProducts.adapter = productAdapter
 
                 hideSkeletonLoader()
@@ -165,6 +166,11 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private fun searchProductFilter() {
+        onSearchTextListener()
+        onSearchCrossClick()
+    }
+
     private fun onSearchCrossClick() {
         binding.crossBtn.setOnClickListener {
             binding.etSearchBar.setText("")
@@ -176,11 +182,10 @@ class HomeFragment : Fragment() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(s.toString().isNotEmpty()) {
-                    binding.crossBtn.visibility = View.VISIBLE
-                } else {
-                    binding.crossBtn.visibility = View.GONE
-                }
+                binding.crossBtn.visibility = if(s.toString().isNotEmpty()) View.VISIBLE else View.GONE
+
+                val query = s.toString().trim()
+                productAdapter.getFilter().filter(query)
             }
 
             override fun afterTextChanged(s: Editable?) {}

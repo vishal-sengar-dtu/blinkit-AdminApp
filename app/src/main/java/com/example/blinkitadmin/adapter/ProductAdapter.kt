@@ -8,11 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.blinkitadmin.ProductFilter
 import com.example.blinkitadmin.R
 import com.example.blinkitadmin.Utility
 import com.example.blinkitadmin.databinding.ItemViewProductBinding
@@ -21,7 +24,7 @@ import com.example.blinkitadmin.model.Product
 class ProductAdapter(
     private val fragment : Fragment,
     val onEditButtonClick : (Product) -> Unit
-) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>(), Filterable {
 
     val differ = AsyncListDiffer(this, object : DiffUtil.ItemCallback<Product>() {
         override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
@@ -88,5 +91,14 @@ class ProductAdapter(
 
         }
 
+    }
+
+    var originalProductList : List<Product> = ArrayList()
+    var filter : ProductFilter? = null
+    override fun getFilter(): Filter {
+        if(filter == null) {
+            filter = ProductFilter(this, originalProductList as ArrayList<Product>)
+        }
+        return filter as ProductFilter
     }
 }
