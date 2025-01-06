@@ -18,7 +18,6 @@ class ProductFilter(val adapter : ProductAdapter, val productList : ArrayList<Pr
             productList.forEach { product ->
                 if(query.any {
                         product.title?.uppercase(Locale.getDefault()).toString().contains(it) ||
-                                product.category?.uppercase(Locale.getDefault()).toString().contains(it) ||
                                 product.type?.uppercase(Locale.getDefault()).toString().contains(it)
                     }) {
                     filteredList.add(product)
